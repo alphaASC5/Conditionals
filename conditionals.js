@@ -90,6 +90,7 @@ const randomPerson = Math.random() > .5 ? "John" : "Felipe";
 // command line argument
 
 const choice = process.argv[4];
+const message = process.argv[5];
 
 // If "choice" is NOT defined (recall how we did this with the "username" variable)
 //      - console.log("You shut down due to inactivity and get robbed of all your money");
@@ -118,7 +119,6 @@ if(!choice){
     console.log("You run, but John, a human officer with an attitude and a heart of gold, finds you...");
     if(item === 'paint'){
         console.log("You boldy protest by painting a pro-android message...");
-         const message = process.argv[5];
          if(message){
             console.log(`..."${message.toUpperCase()}""`);
          }else {
@@ -166,13 +166,23 @@ if(!choice){
 // that scope are inaccessible to the world outside of those brackets
 
 // Create a variable "score" and set it equal to 0
-
+let score = 0
 // Add "money" and "health" to "score"
-
+score = money + health
 // If "choice" is defined, add 10 points to "score"
 // NOTE: Recall where "choice" was initialized (created). What scope was it in?
 // The global scope! So all of your code has access to it.
 
+if(choice){
+    score += 10
+}
+
+if(message){
+    score += 10
+}
+
+console.log("The End");
+console.log(`Score: ${score}`);
 // if "message" is defined, add 10 points to "score"
 // NOTE: Recall where "message" was initialized/created. 
 // It's within curly brackets! 
